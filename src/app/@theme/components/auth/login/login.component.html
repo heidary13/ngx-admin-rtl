@@ -1,0 +1,59 @@
+<h2 class="title">ورود</h2>
+<small class="form-text sub-title">سامانه مدیریت آبیاری</small>
+
+<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" status="danger" role="alert">
+    <p class="alert-title"><b>خطا!</b></p>
+    <ul class="alert-message-list">
+        <li class="alert-message">نام کاربری یا رمز عبور صحیح نمی باشد.</li>
+    </ul>
+</nb-alert>
+<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" status="success" role="alert">
+    <p class="alert-title"><b>ورود با موفقیت انجام شد</b></p>
+    <ul class="alert-message-list">
+        <li class="alert-message">لطفا صبر کنید...</li>
+    </ul>
+</nb-alert>
+<form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
+
+    <div class="form-group">
+        <label for="input-email" class="sr-only">تلفن همراه</label>
+        <input nbInput
+               [(ngModel)]="user.phone"
+               #email="ngModel"
+               name="phone"
+               id="input-email"
+               placeholder="تلفن همراه"
+               class="form-control"
+               autofocus
+               fullWidth>
+
+
+    </div>
+
+    <div class="form-group">
+        <label for="input-password" class="sr-only">رمزعبور</label>
+        <input nbInput
+               [(ngModel)]="user.password"
+               #password="ngModel"
+               name="password"
+               type="password"
+               id="input-password"
+               placeholder="رمزعبور"
+               class="form-control"
+               fullWidth
+               [required]="getConfigValue('forms.validation.password.required')"
+               [minlength]="getConfigValue('forms.validation.password.minLength')"
+               [maxlength]="getConfigValue('forms.validation.password.maxLength')">
+
+
+    </div>
+
+    <button nbButton
+            status="success"
+            class="col-md-12 btn btn-primary btn-block"
+            fullWidth
+            [disabled]="submitted || !form.valid"
+            [class.btn-pulse]="submitted">
+        ورود
+    </button>
+</form>
