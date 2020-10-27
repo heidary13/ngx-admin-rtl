@@ -17,15 +17,19 @@
 
     <div class="form-group">
         <label for="input-email" class="sr-only">تلفن همراه</label>
+        <small>بدون صفر وارد شود.</small>
         <input nbInput
-               [(ngModel)]="user.phone"
+               [(ngModel)]="user.mobile"
                #email="ngModel"
-               name="phone"
+               name="mobile"
                id="input-email"
                placeholder="تلفن همراه"
                class="form-control"
                autofocus
-               fullWidth>
+               fullWidth
+               [minLength]="10"
+               [maxLength]="10"
+        >
 
 
     </div>

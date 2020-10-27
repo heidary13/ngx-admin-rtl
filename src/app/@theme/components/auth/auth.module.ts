@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import {
-    NbAuthModule,
-    NbPasswordAuthStrategy,
-    NbAuthJWTToken,
+  NbAuthModule,
+  NbPasswordAuthStrategy,
+  NbAuthJWTToken, getDeepFromObject,
 } from '@nebular/auth';
 import {
     NbAlertModule,
@@ -16,6 +16,12 @@ import {
 } from '@nebular/theme';
 import { NgxAuthRoutingModule } from './auth.routing.module';
 import { NgxLoginComponent } from './login/login.component';
+import {RestService} from '../../../Rest/rest.service';
+import {HttpResponse} from '@angular/common/http';
+
+export function tokenGetter(module: string, res: HttpResponse<Object>) {
+  return JSON.stringify(res.body);
+}
 
 @NgModule({
     imports: [
@@ -30,13 +36,13 @@ import { NgxLoginComponent } from './login/login.component';
         NbAuthModule.forRoot({
             strategies: [
                 NbPasswordAuthStrategy.setup({
-                    name: 'mobile',
+                    name: 'email',
 
-                    baseEndpoint:
-                        'http://localhost:8000/',
+                    baseEndpoint: RestService.getUrl(),
                     token: {
                         class: NbAuthJWTToken,
                         key: 'token',
+                        getter: tokenGetter,
                     },
                     login: {
                         // ...

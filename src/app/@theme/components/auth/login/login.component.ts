@@ -6,4 +6,6 @@ import { NbLoginComponent } from '@nebular/auth';
     styleUrls: ['./login.component.scss'],
     templateUrl: './login.component.html',
 })
-export class NgxLoginComponent extends NbLoginComponent {}
+export class NgxLoginComponent extends NbLoginComponent {
+  user: any = {};
+}

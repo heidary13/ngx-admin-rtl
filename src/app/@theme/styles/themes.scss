@@ -2,6 +2,14 @@
 @import '~@nebular/theme/styles/theming';
 // @nebular out of the box themes
 @import '~@nebular/theme/styles/themes';
+@font-face {
+  font-family: 'iran';
+  src: local('☺'),
+  local('iran'),
+  url('/assets/fonts/iran.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
@@ -18,6 +26,16 @@ $nb-themes: nb-register-theme((
   card-header-with-select-padding-bottom: 0.5rem,
 
   select-min-width: 6rem,
+
+  font-family-primary: 'iran',
+  font-family-secondary: 'iran',
+  text-heading-1-font-family: 'iran',
+  text-heading-2-font-family: 'iran',
+  text-heading-3-font-family: 'iran',
+  text-heading-4-font-family: 'iran',
+  text-heading-5-font-family: 'iran',
+  text-heading-6-font-family: 'iran',
+  text-subtitle-font-family: 'iran',
 
   slide-out-background: #f7f9fc,
   slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
@@ -40,6 +58,16 @@ $nb-themes: nb-register-theme((
 
   select-min-width: 6rem,
 
+  font-family-primary: 'iran',
+  font-family-secondary: 'iran',
+  text-heading-1-font-family: 'iran',
+  text-heading-2-font-family: 'iran',
+  text-heading-3-font-family: 'iran',
+  text-heading-4-font-family: 'iran',
+  text-heading-5-font-family: 'iran',
+  text-heading-6-font-family: 'iran',
+  text-subtitle-font-family: 'iran',
+
   slide-out-background: #252547,
   slide-out-shadow-color: 2px 0 3px #29157a,
   slide-out-shadow-color-rtl: -2px 0 3px #29157a,
@@ -61,6 +89,16 @@ $nb-themes: nb-register-theme((
 
   select-min-width: 6rem,
 
+  font-family-primary: 'iran',
+  font-family-secondary: 'iran',
+  text-heading-1-font-family: 'iran',
+  text-heading-2-font-family: 'iran',
+  text-heading-3-font-family: 'iran',
+  text-heading-4-font-family: 'iran',
+  text-heading-5-font-family: 'iran',
+  text-heading-6-font-family: 'iran',
+  text-subtitle-font-family: 'iran',
+
   slide-out-background: linear-gradient(270deg, #edf1f7 0%, #e4e9f2 100%),
   slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
   slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
@@ -81,6 +119,16 @@ $nb-themes: nb-register-theme((
   card-header-with-select-padding-bottom: 0.5rem,
 
   select-min-width: 6rem,
+
+  font-family-primary: 'iran',
+  font-family-secondary: 'iran',
+  text-heading-1-font-family: 'iran',
+  text-heading-2-font-family: 'iran',
+  text-heading-3-font-family: 'iran',
+  text-heading-4-font-family: 'iran',
+  text-heading-5-font-family: 'iran',
+  text-heading-6-font-family: 'iran',
+  text-subtitle-font-family: 'iran',
 
   slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),
   slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
