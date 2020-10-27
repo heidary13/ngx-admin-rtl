@@ -20,7 +20,7 @@ import {RestService} from '../../../Rest/rest.service';
 import {HttpResponse} from '@angular/common/http';
 
 export function tokenGetter(module: string, res: HttpResponse<Object>) {
-  return JSON.stringify(res.body);
+  return JSON.stringify(res.body['success']['token']);
 }
 
 @NgModule({

@@ -5,6 +5,8 @@ import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import {NbAuthJWTToken, NbAuthService} from '@nebular/auth';
+import {RestService} from '../../../Rest/rest.service';
 
 @Component({
   selector: 'ngx-header',
@@ -20,32 +22,39 @@ export class HeaderComponent implements OnInit, OnDestroy {
   themes = [
     {
       value: 'default',
-      name: 'Light',
+      name: 'روشن',
     },
     {
       value: 'dark',
-      name: 'Dark',
+      name: 'تاریک',
     },
     {
       value: 'cosmic',
-      name: 'Cosmic',
+      name: 'مدرن',
     },
     {
       value: 'corporate',
-      name: 'Corporate',
+      name: 'کلاسیک',
     },
   ];
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = [{ title: 'پروفایل' }, { title: 'خروج', link: 'auth/logout' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private userService: UserData,
               private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+              private breakpointService: NbMediaBreakpointsService,
+              private authService: NbAuthService,
+              private RestApiService: RestService) {
+    this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
+      if (token.isValid()) {
+        this.RestApiService.setToken(token.getValue());
+      }
+    });
   }
 
   ngOnInit() {

@@ -57,13 +57,13 @@ export class RestService implements HttpInterceptor {
     }
 
     setToken(token) {
-        // this.cookieService.set('token', token);
-        this.Token = token;
+        this.cookieService.set('token', token);
+        // this.Token = token;
     }
 
     getToken() {
-        // return this.cookieService.get('token');
-        return this.Token;
+        return this.cookieService.get('token');
+        // return this.Token;
     }
 
     isToken() {
